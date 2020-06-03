@@ -1,5 +1,6 @@
 #pragma once
 #include "Soldier.hpp"
+using namespace WarGame;
 class Paramedic : public Soldier {
 private:
     static const int INIT_HP = 100;
@@ -13,6 +14,6 @@ public:
         damage = 0; // 0 means he cannot damaged , so he can heal full
     };
     ~Paramedic(){};
-    void action(vector<vector<Soldier *>> &board, pair<int, int> location);
+    void action(Board &board, pair<int, int> location);
     const uint getInitHp() const;
 };

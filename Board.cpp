@@ -52,7 +52,7 @@ void Board::move(uint player_number, pair<int, int> source, MoveDIR direction) {
 
     board[target.first][target.second] = soldier;
     board[source.first][source.second] = nullptr;
-    soldier->action(board, target);
+    soldier->action(*this, target);
 }
 bool Board::has_soldiers(uint player_number) const {
     for (int i = 0; i < board.size(); i++) {
@@ -67,7 +67,7 @@ bool Board::has_soldiers(uint player_number) const {
     return false;
 }
 
-pair<Soldier *, pair<int, int>> Board::getClosestEnemy(vector<vector<Soldier *>> &board, pair<int, int> source, uint enemy_player_num) {
+pair<Soldier *, pair<int, int>> Board::getClosestEnemy(pair<int, int> source, uint enemy_player_num) {
     Soldier *closest_soldier = nullptr;
     pair<int, int> location = {-1, -1};
     double min_distance = numeric_limits<double>::max();
@@ -89,7 +89,7 @@ pair<Soldier *, pair<int, int>> Board::getClosestEnemy(vector<vector<Soldier *>>
     }
     return {closest_soldier, location};
 }
-pair<Soldier *, pair<int, int>> Board::getStrongestEnemy(vector<vector<Soldier *>> &board, pair<int, int> source, uint enemy_player_num) {
+pair<Soldier *, pair<int, int>> Board::getStrongestEnemy(pair<int, int> source, uint enemy_player_num) {
     Soldier *strongest_soldier = nullptr;
     pair<int, int> location = {-1, -1};
     int max_hp = numeric_limits<double>::min();
@@ -107,7 +107,7 @@ pair<Soldier *, pair<int, int>> Board::getStrongestEnemy(vector<vector<Soldier *
     }
     return {strongest_soldier, location};
 }
-vector<Soldier *> Board::getMySoldiers(vector<vector<Soldier *>> &board, pair<int, int> source, uint player_num) {
+vector<Soldier *> Board::getMySoldiers(pair<int, int> source, uint player_num) {
     vector<Soldier *> soldiers;
     for (int i = 0; i < board.size(); i++) {
         for (int j = 0; j < board[i].size(); j++) {
@@ -122,7 +122,7 @@ vector<Soldier *> Board::getMySoldiers(vector<vector<Soldier *>> &board, pair<in
     }
     return soldiers;
 }
-vector<pair<Soldier *, pair<int, int>>> Board::getCommanderSodliers(vector<vector<Soldier *>> &board, Type type, uint player_num) {
+vector<pair<Soldier *, pair<int, int>>> Board::getCommanderSodliers(Type type, uint player_num) {
     vector<pair<Soldier *, pair<int, int>>> soldiers;
 
     for (int i = 0; i < board.size(); i++) {

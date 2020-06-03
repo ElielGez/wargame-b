@@ -1,5 +1,6 @@
 #pragma once
 #include "FootSoldier.hpp"
+using namespace WarGame;
 class FootCommander : public FootSoldier {
 private:
     static const int INIT_HP = 150;
@@ -13,6 +14,6 @@ public:
         damage = 20;
     };
     ~FootCommander(){};
-    void action(vector<vector<Soldier *>> &board, pair<int, int> location);
+    void action(Board &board, pair<int, int> location);
     const uint getInitHp() const;
 };

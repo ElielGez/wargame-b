@@ -5,13 +5,13 @@
 //   @since  2020-05
 // **/
 
-// #include <iostream>
 // #include "DemoGame.hpp"
+// #include <iostream>
 
 // using namespace std;
 
 // int main() {
-// 	WarGame::DemoGame demoGame;
-// 	cout << "The winner is:\n " << demoGame.play() << endl;
+//     WarGame::DemoGame demoGame;
+//     cout << "The winner is:\n " << demoGame.play() << endl;
 //     return 0;
 // }

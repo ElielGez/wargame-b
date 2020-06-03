@@ -4,7 +4,7 @@
 #include <vector>
 
 using namespace std;
-
+namespace WarGame {
 typedef enum Type {
     FOOT_SOLDIER,
     FOOT_COMMANDER,
@@ -13,7 +13,7 @@ typedef enum Type {
     PARAMEDIC,
     PARAMEDIC_COMMANDER
 } Type;
-
+class Board;
 class Soldier {
 protected:
 public:
@@ -23,7 +23,7 @@ public:
     uint damage;
     Soldier(){};
     virtual ~Soldier(){};
-    virtual void action(vector<vector<Soldier *>> &board, pair<int, int> location) = 0;
+    virtual void action(Board &board, pair<int, int> location) = 0;
     virtual const uint getInitHp() const = 0;
 
     Type getType() { return type; }
@@ -34,3 +34,4 @@ public:
 
     uint getEnemyPlayerNum();
 };
+} // namespace WarGame

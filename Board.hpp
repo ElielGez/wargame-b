@@ -48,11 +48,12 @@ public:
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
+    std::vector<std::vector<Soldier *>> &getBoard() { return board; };
 
-    static pair<Soldier *, pair<int, int>> getClosestEnemy(vector<vector<Soldier *>> &board, pair<int, int> source, uint enemy_player_num);
-    static pair<Soldier *, pair<int, int>> getStrongestEnemy(vector<vector<Soldier *>> &board, pair<int, int> source, uint enemy_player_num);
-    static vector<Soldier *> getMySoldiers(vector<vector<Soldier *>> &board, pair<int, int> source, uint player_num);
-    static vector<pair<Soldier *, pair<int, int>>> getCommanderSodliers(vector<vector<Soldier *>> &board, Type type, uint player_num);
+    pair<Soldier *, pair<int, int>> getClosestEnemy(pair<int, int> source, uint enemy_player_num);
+    pair<Soldier *, pair<int, int>> getStrongestEnemy(pair<int, int> source, uint enemy_player_num);
+    vector<Soldier *> getMySoldiers(pair<int, int> source, uint player_num);
+    vector<pair<Soldier *, pair<int, int>>> getCommanderSodliers(Type type, uint player_num);
 };
 
 } // namespace WarGame

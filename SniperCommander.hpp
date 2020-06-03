@@ -1,5 +1,6 @@
 #pragma once
 #include "Sniper.hpp"
+using namespace WarGame;
 class SniperCommander : public Sniper {
 private:
     static const int INIT_HP = 120;
@@ -13,6 +14,6 @@ public:
         damage = 100;
     };
     ~SniperCommander(){};
-    void action(vector<vector<Soldier *>> &board, pair<int, int> location);
+    void action(Board &board, pair<int, int> location);
     const uint getInitHp() const;
 };
