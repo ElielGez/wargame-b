@@ -77,7 +77,7 @@ pair<Soldier *, pair<int, int>> Board::getClosestEnemy(pair<int, int> source, ui
             if (curr_soldier != nullptr) {
                 if (curr_soldier->getPlayerNum() == enemy_player_num) {
                     double d = sqrt(pow(source.first - source.second, 2) +
-                                    pow(i - j, 2) * 1.0);
+                                    pow(i - j, 2));
                     if (d < min_distance) {
                         min_distance = d;
                         closest_soldier = curr_soldier;
